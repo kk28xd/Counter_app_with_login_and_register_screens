@@ -37,6 +37,7 @@ class _registerScreenState extends State<registerScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextF(
+                      keyboardType: TextInputType.name,
                       ob_text: false,
                       pre_icon: const Icon(Icons.person),
                       txtedit: textEditingController3,
@@ -46,6 +47,7 @@ class _registerScreenState extends State<registerScreen> {
                       height: 15,
                     ),
                     TextF(
+                      keyboardType: TextInputType.phone,
                       ob_text: false,
                       pre_icon: const Icon(Icons.phone_android),
                       txtedit: textEditingController4,
@@ -55,6 +57,7 @@ class _registerScreenState extends State<registerScreen> {
                       height: 15,
                     ),
                     TextF(
+                      keyboardType: TextInputType.emailAddress,
                       ob_text: false,
                       pre_icon: const Icon(Icons.mail),
                       txtedit: textEditingController5,
@@ -72,7 +75,7 @@ class _registerScreenState extends State<registerScreen> {
                       },
                       obscureText: ob,
                       controller: textEditingController6,
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.key),
                         suffixIcon: IconButton(

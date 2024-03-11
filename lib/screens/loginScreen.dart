@@ -54,6 +54,7 @@ class _LoginState extends State<Login> {
                       height: 10,
                     ),
                     TextF(
+                      keyboardType: TextInputType.emailAddress,
                       ob_text: false,
                       pre_icon: const Icon(Icons.mail),
                       txtedit: textEditingController,
@@ -71,7 +72,7 @@ class _LoginState extends State<Login> {
                       },
                       obscureText: obscureText,
                       controller: textEditingController2,
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.key),
                         suffixIcon: IconButton(
@@ -154,13 +155,13 @@ class TextF extends StatelessWidget {
       required this.txtedit,
       required this.label,
       required this.pre_icon,
-      required this.ob_text});
+      required this.ob_text,required this.keyboardType});
 
   final txtedit;
   final label;
   final pre_icon;
   final bool ob_text;
-
+  final TextInputType keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -172,7 +173,7 @@ class TextF extends StatelessWidget {
       },
       obscureText: ob_text,
       controller: txtedit,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         prefixIcon: pre_icon,
         label: Text(label, style: const TextStyle(fontSize: 20)),

@@ -1,4 +1,6 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 int num = 0;
 
@@ -26,6 +28,12 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ConditionalBuilder(
+                condition: num == 5,
+                builder: (context) => const Text('Num == 5',
+                    style: TextStyle(fontSize: 40, color: Color(0xff2A1F3F))),
+                fallback: (context) => const Text('Num != 5',
+                    style: TextStyle(fontSize: 40, color: Color(0xff2A1F3F)))),
             Text(
               '$num',
               style: const TextStyle(
@@ -84,8 +92,47 @@ class _HomePageState extends State<HomePage> {
                     )),
               ],
             ),
+            const Gap(40),
+            InkWell(
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Center(
+                      child: RichText(
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(text:'G',style: TextStyle(color: Colors.red,fontSize: 20)),
+                            TextSpan(text:'D',style: TextStyle(color: Colors.blue,fontSize: 20)),
+                            TextSpan(text:'S',style: TextStyle(color: Colors.green,fontSize: 20)),
+                            TextSpan(text:'C ',style: TextStyle(color: Colors.yellow,fontSize: 20)),
+                            TextSpan(text:'Is The Best',style: TextStyle(fontSize: 20)),
+                          ]
+                        ),
+                      ),
+                    )
+                    //action: SnackBarAction(label: 'OK', onPressed: () {},),
+                  ),
+                );
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(16)),
+                  ),
+                  const Text(
+                    'GDSC',
+                    style: TextStyle(color: Colors.white, fontSize: 25),
+                  )
+                ],
+              ),
+            ),
             const SizedBox(
-              height: 120,
+              height: 60,
             ),
           ],
         ),
